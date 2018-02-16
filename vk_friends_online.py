@@ -1,5 +1,5 @@
 import vk
-
+import getpass
 
 APP_ID = 6371981
 
@@ -9,7 +9,7 @@ def get_user_login():
 
 
 def get_user_password():
-    return input('password:')
+    return getpass.getpass(prompt='password:')
 
 
 def get_online_friends(login, password):
@@ -17,7 +17,7 @@ def get_online_friends(login, password):
         app_id=APP_ID,
         user_login=login,
         user_password=password,
-        scope="friends",
+        scope='friends',
     )
     api_context = vk.API(session)
     friends_online_id_list = api_context.friends.getOnline()
